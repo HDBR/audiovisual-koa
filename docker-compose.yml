@@ -4,7 +4,7 @@ services:
   web:
     image: nginx:alpine
     volumes:
-      - /opt/stacks/audiovisual-koa/site:/usr/share/nginx/html:ro
+      - /opt/stacks/audiovisual-koa/repo/site:/usr/share/nginx/html:ro
     networks:
       - HDBRNET
     healthcheck:

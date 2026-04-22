@@ -37,11 +37,11 @@ python3 -m http.server 8080
 
 ## Deploy
 
-O servidor Guzz tem `/opt/stacks/audiovisual-koa/site/` como clone desse repo. Para atualizar:
+O servidor Guzz tem `/opt/stacks/audiovisual-koa/repo/` como clone desse repo; o volume bind-mount aponta pra `repo/site`. Para atualizar:
 
 ```bash
 ssh guzz
-cd /opt/stacks/audiovisual-koa/site
+cd /opt/stacks/audiovisual-koa/repo
 sudo git pull
 # nginx serve o volume bind-mount em tempo real — não precisa restart
 ```
