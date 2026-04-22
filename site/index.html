@@ -1,0 +1,882 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>KOA Audiovisual — Produção Audiovisual em Santa Catarina</title>
+<meta name="description" content="Produção audiovisual em Santa Catarina. Vídeos institucionais, conteúdo para redes e campanhas publicitárias que fazem sua marca ser lembrada." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#0a0a0a" />
+<link rel="canonical" href="https://audiovisual.koaworld.org/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="KOA Audiovisual" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:url" content="https://audiovisual.koaworld.org/" />
+<meta property="og:title" content="KOA Audiovisual — Produção Audiovisual em Santa Catarina" />
+<meta property="og:description" content="Produção audiovisual em Santa Catarina. Vídeos institucionais, conteúdo para redes e campanhas publicitárias que fazem sua marca ser lembrada." />
+<meta property="og:image" content="https://audiovisual.koaworld.org/koa-logo.webp" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="KOA Audiovisual — Produção Audiovisual em Santa Catarina" />
+<meta name="twitter:description" content="Produção audiovisual em Santa Catarina. Vídeos institucionais, conteúdo para redes e campanhas publicitárias que fazem sua marca ser lembrada." />
+<meta name="twitter:image" content="https://audiovisual.koaworld.org/koa-logo.webp" />
+
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-soft: #111111;
+    --bg-card: #141414;
+    --fg: #f4f4f4;
+    --fg-dim: #b0b0b0;
+    --muted: #7a7a7a;
+    --accent: #ffffff;
+    --border: rgba(255,255,255,.08);
+    --border-hover: rgba(255,255,255,.18);
+    --radius: 3px;
+    --gap: 6px;
+    --nav-h: 72px;
+    --section-pad: clamp(80px, 10vw, 140px);
+    --side-pad: clamp(20px, 5vw, 80px);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.6;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ========== NAV ========== */
+  nav.topnav {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 var(--side-pad);
+    background: rgba(10,10,10,.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 10px; }
+  .nav-brand img { height: 38px; width: auto; }
+  .nav-brand span {
+    font-size: 11px; letter-spacing: .35em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500;
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 13px; letter-spacing: .08em; color: var(--fg-dim);
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-links .nav-cta {
+    padding: 9px 22px;
+    border: 1px solid var(--border-hover);
+    border-radius: 2px;
+    font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+    color: #fff;
+    transition: background .2s, border-color .2s;
+  }
+  .nav-links .nav-cta:hover { background: rgba(255,255,255,.08); border-color: #fff; }
+
+  /* mobile hamburger */
+  .hamburger { display: none; background: none; border: 0; color: #fff; cursor: pointer; padding: 8px; }
+  .hamburger svg { width: 24px; height: 24px; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
+      background: rgba(10,10,10,.97);
+      padding: 40px 24px;
+      gap: 28px;
+    }
+    .nav-links.open a { font-size: 18px; }
+    .hamburger { display: block; }
+  }
+
+  /* ========== SECTIONS ========== */
+  section { padding: var(--section-pad) var(--side-pad); }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px; letter-spacing: .4em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-top: calc(var(--nav-h) + 60px);
+    padding-bottom: 60px;
+    max-width: 820px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 5.5vw, 72px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -.025em;
+    margin-bottom: 28px;
+  }
+  .hero h1 strong { font-weight: 600; }
+  .hero .sub {
+    font-size: clamp(16px, 1.8vw, 20px);
+    color: var(--fg-dim);
+    line-height: 1.65;
+    max-width: 580px;
+    margin-bottom: 44px;
+  }
+  .hero .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  /* buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 28px;
+    font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+    font-family: inherit; font-weight: 500;
+    border: 1px solid var(--border-hover);
+    background: transparent; color: #fff;
+    cursor: pointer;
+    transition: background .2s, border-color .2s, transform .15s;
+    border-radius: 2px;
+  }
+  .btn:hover { border-color: #fff; transform: translateY(-1px); }
+  .btn.primary { background: #fff; color: #0a0a0a; border-color: #fff; }
+  .btn.primary:hover { background: #e6e6e6; }
+  .btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+  /* ========== PORTFÓLIO ========== */
+  .portfolio { background: var(--bg); }
+  .portfolio h2 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 300; letter-spacing: -.02em;
+    margin-bottom: 48px;
+  }
+  .portfolio-grid {
+    width: 100%; aspect-ratio: 12/10;
+    display: grid;
+    gap: var(--gap);
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    transition: grid-template-rows .5s cubic-bezier(.2,.7,.2,1),
+                grid-template-columns .5s cubic-bezier(.2,.7,.2,1);
+  }
+  .cell {
+    position: relative; overflow: hidden;
+    background: var(--bg-soft); border-radius: var(--radius);
+    cursor: pointer; isolation: isolate;
+  }
+  .cell iframe, .cell video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; border: 0;
+    pointer-events: none;
+    transform: scale(1.05);
+    transition: transform .6s cubic-bezier(.2,.7,.2,1), filter .4s ease;
+    filter: saturate(.85) brightness(.78);
+  }
+  .cell::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.55) 100%);
+    transition: opacity .3s ease;
+    pointer-events: none;
+  }
+  .cell .label {
+    position: absolute; left: 16px; bottom: 14px; z-index: 2;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: transform .4s ease, opacity .3s ease;
+  }
+  .cell .label .title {
+    font-size: 13px; letter-spacing: .04em;
+    font-weight: 600; color: #fff;
+  }
+  .cell .label .cat {
+    font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
+    color: rgba(255,255,255,.6); margin-top: 3px;
+  }
+  .cell:hover iframe, .cell:hover video {
+    transform: scale(1.08);
+    filter: saturate(1) brightness(1);
+  }
+  .cell:hover::after { opacity: .3; }
+  .cell:hover .label { transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    .portfolio-grid {
+      aspect-ratio: auto;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(12, 56vw);
+      transition: none;
+    }
+  }
+
+  /* ========== SERVIÇOS ========== */
+  .servicos { background: var(--bg-soft); }
+  .servicos h2 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 300; letter-spacing: -.02em;
+    margin-bottom: 56px;
+  }
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .servico-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 40px 32px;
+    display: flex; flex-direction: column;
+    transition: border-color .3s, transform .3s;
+  }
+  .servico-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+  }
+  .servico-num {
+    font-size: 12px; letter-spacing: .3em; color: var(--muted);
+    font-weight: 600; margin-bottom: 20px;
+  }
+  .servico-card h3 {
+    font-size: 22px; font-weight: 500;
+    line-height: 1.25; margin-bottom: 16px;
+  }
+  .servico-card p {
+    font-size: 15px; color: var(--fg-dim);
+    line-height: 1.65; flex: 1;
+    margin-bottom: 24px;
+  }
+  .servico-price {
+    font-size: 13px; letter-spacing: .08em;
+    color: var(--muted); font-weight: 500;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 900px) {
+    .servicos-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========== DIFERENCIAIS ========== */
+  .diferenciais { background: var(--bg); }
+  .diferenciais h2 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 300; letter-spacing: -.02em;
+    margin-bottom: 20px;
+  }
+  .dif-intro {
+    font-size: clamp(16px, 1.6vw, 19px);
+    color: var(--fg-dim);
+    line-height: 1.7;
+    max-width: 680px;
+    margin-bottom: 56px;
+  }
+  .dif-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .dif-item {
+    padding: 36px 28px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: border-color .3s;
+  }
+  .dif-item:hover { border-color: var(--border-hover); }
+  .dif-item h3 {
+    font-size: 18px; font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .dif-item p {
+    font-size: 15px; color: var(--fg-dim);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 900px) {
+    .dif-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========== DEPOIMENTOS ========== */
+  .depoimentos { background: var(--bg-soft); }
+  .depoimentos h2 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 300; letter-spacing: -.02em;
+    margin-bottom: 48px;
+  }
+  .depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .depo-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 28px;
+    display: flex; flex-direction: column; gap: 16px;
+    transition: border-color .3s;
+  }
+  .depo-card:hover { border-color: var(--border-hover); }
+  .depo-quote-mark {
+    font-size: 48px; line-height: 1; color: rgba(255,255,255,.12);
+    font-family: Georgia, serif;
+  }
+  .depo-text {
+    font-size: 15px; color: var(--fg-dim);
+    line-height: 1.75; font-style: italic;
+  }
+  .depo-author-info { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
+  .depo-author {
+    font-size: 14px; font-weight: 600; color: var(--fg);
+  }
+  .depo-role {
+    font-size: 12px; color: var(--muted); margin-top: 2px;
+  }
+
+  /* media testimonials */
+  .depo-media-section {
+    margin-top: 16px;
+  }
+  .depo-media-label {
+    font-size: 12px; letter-spacing: .3em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .depo-media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .depo-media-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+    transition: border-color .3s;
+  }
+  .depo-media-card:hover { border-color: var(--border-hover); }
+  .depo-media-card .media-label {
+    font-size: 13px; font-weight: 500; color: var(--fg);
+    margin-bottom: 14px;
+  }
+  .depo-media-card audio {
+    width: 100%; height: 40px;
+    border-radius: 4px;
+    filter: invert(1) hue-rotate(180deg) brightness(.85) contrast(1.1);
+  }
+  .depo-media-card video {
+    width: 100%; border-radius: 4px;
+    background: #000;
+  }
+
+  @media (max-width: 900px) {
+    .depoimentos-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========== CTA FINAL ========== */
+  .cta-final {
+    background: var(--bg);
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .cta-final h2 {
+    font-size: clamp(30px, 4vw, 56px);
+    font-weight: 300; letter-spacing: -.02em;
+    margin-bottom: 20px;
+  }
+  .cta-final .cta-sub {
+    font-size: clamp(16px, 1.6vw, 19px);
+    color: var(--fg-dim);
+    line-height: 1.65;
+    max-width: 520px;
+    margin-bottom: 40px;
+  }
+  .cta-final .cta-actions {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    padding: 40px var(--side-pad);
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  footer .foot-brand { display: flex; align-items: center; gap: 8px; }
+  footer .foot-brand img { height: 28px; }
+  footer .foot-copy {
+    font-size: 12px; color: var(--muted); letter-spacing: .04em;
+  }
+
+  /* ========== VIDEO MODAL ========== */
+  .modal {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.92);
+    display: none; align-items: center; justify-content: center;
+    z-index: 200; padding: 4vh 4vw;
+    backdrop-filter: blur(6px);
+  }
+  .modal.open { display: flex; }
+  .modal .stage {
+    position: relative; width: 100%; max-width: 1280px;
+    aspect-ratio: 16/9; background: #000;
+  }
+  .modal .stage iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; border: 0;
+  }
+  .modal .close {
+    position: absolute; top: -44px; right: 0;
+    background: none; border: 0; color: #fff; cursor: pointer;
+    font-size: 13px; letter-spacing: .2em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 8px;
+    font-family: inherit;
+  }
+  .modal .close:hover { color: #c9c9c9; }
+
+  /* ========== ANIMATIONS ========== */
+  .fade-up {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1; transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="topnav">
+  <a href="#" class="nav-brand">
+    <img src="koa-logo.webp" alt="KOA" />
+    <span>Audiovisual</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#portfolio">Portfólio</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#sobre">Sobre</a>
+    <a href="https://wa.me/5548996330043?text=Oi%2C%20vim%20pelo%20site%20da%20KOA%20Audiovisual." target="_blank" rel="noopener" class="nav-cta">Falar com a gente</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <span class="tag fade-up">Produção Audiovisual em Santa Catarina</span>
+  <h1 class="fade-up">Sua marca merece<br>ser vista com <strong>elegância.</strong></h1>
+  <p class="sub fade-up">Vídeo não é só conteúdo. É como você molda a percepção do cliente com o seu produto, através do que ele sente vendo um vídeo sobre o seu negócio.<br><br>Isso é o que separa uma empresa que as pessoas esquecem de uma que elas recomendam. A gente trabalha com esse segundo tipo.</p>
+  <div class="hero-actions fade-up">
+    <a class="btn primary" href="#portfolio">Ver portfólio</a>
+    <a class="btn" href="https://wa.me/5548996330043?text=Oi%2C%20quero%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener">
+      Falar sobre seu projeto
+    </a>
+  </div>
+</section>
+
+<!-- ===== PORTFÓLIO ===== -->
+<section class="portfolio" id="portfolio">
+  <span class="tag fade-up">Portfólio</span>
+  <h2 class="fade-up">Trabalhos que falam por si.</h2>
+
+  <div class="portfolio-grid fade-up" id="grid">
+    <!-- ROW 1 -->
+    <div class="cell" data-video-id="502352888" data-platform="vimeo"
+         style="grid-row:1;grid-column:1;">
+      <iframe src="https://player.vimeo.com/video/502352888?background=1&autoplay=1&muted=1&loop=1&autopause=0&controls=0&dnt=1"
+        allow="autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="label">
+        <div class="title">AKAIKAME — Demoreel</div>
+        <div class="cat">Quem somos</div>
+      </div>
+    </div>
+
+    <div class="cell" data-video-id="713768863" data-platform="vimeo"
+         style="grid-row:1;grid-column:2;">
+      <iframe src="https://player.vimeo.com/video/713768863?background=1&autoplay=1&muted=1&loop=1&autopause=0&controls=0&dnt=1"
+        allow="autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="label">
+        <div class="title">IMA</div>
+        <div class="cat">Institucional</div>
+      </div>
+    </div>
+
+    <div class="cell" data-video-id="713767142" data-platform="vimeo"
+         style="grid-row:1;grid-column:3;">
+      <iframe src="https://player.vimeo.com/video/713767142?background=1&autoplay=1&muted=1&loop=1&autopause=0&controls=0&dnt=1"
+        allow="autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="label">
+        <div class="title">CREA SC</div>
+        <div class="cat">Institucional</div>
+      </div>
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="cell" data-video-id="654253077" data-platform="vimeo"
+         style="grid-row:2;grid-column:1;">
+      <iframe src="https://player.vimeo.com/video/654253077?background=1&autoplay=1&muted=1&loop=1&autopause=0&controls=0&dnt=1"
+        allow="autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="label">
+        <div class="title">Nova Praia BC</div>
+        <div class="cat">Entrega oficial</div>
+      </div>
+    </div>
+
+    <div class="cell" data-video-id="yyCarSgUls8" data-platform="youtube"
+         style="grid-row:2;grid-column:2;">
+      <iframe src="https://www.youtube.com/embed/yyCarSgUls8?si=icvFd_F2uBr9ptIQ&controls=0&autoplay=1&mute=1&loop=1&playlist=yyCarSgUls8&modestbranding=1&playsinline=1&rel=0&showinfo=0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+      <div class="label">
+        <div class="title">Majestic — Ano Novo</div>
+        <div class="cat">Evento</div>
+      </div>
+    </div>
+
+    <div class="cell" data-video-id="502353512" data-platform="vimeo"
+         style="grid-row:2;grid-column:3;">
+      <iframe src="https://player.vimeo.com/video/502353512?background=1&autoplay=1&muted=1&loop=1&autopause=0&controls=0&dnt=1"
+        allow="autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="label">
+        <div class="title">Pedra do Mar</div>
+        <div class="cat">Branded — Black Edition</div>
+      </div>
+    </div>
+
+    <!-- ROW 3 -->
+    <div class="cell" data-video-id="664807500" data-platform="vimeo"
+         style="grid-row:3;grid-column:1;">
+      <iframe src="https://player.vimeo.com/video/664807500?background=1&autoplay=1&muted=1&loop=1&autopause=0&controls=0&dnt=1"
+        allow="autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="label">
+        <div class="title">Lunna Residence</div>
+        <div class="cat">Imobiliário</div>
+      </div>
+    </div>
+
+    <div class="cell" data-video-id="505755487" data-platform="vimeo"
+         style="grid-row:3;grid-column:2;">
+      <iframe src="https://player.vimeo.com/video/505755487?background=1&autoplay=1&muted=1&loop=1&autopause=0&controls=0&dnt=1"
+        allow="autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="label">
+        <div class="title">LYTH — Investidores</div>
+        <div class="cat">Imobiliário</div>
+      </div>
+    </div>
+
+    <div class="cell" data-video-id="502343641" data-platform="vimeo"
+         style="grid-row:3;grid-column:3;">
+      <iframe src="https://player.vimeo.com/video/502343641?background=1&autoplay=1&muted=1&loop=1&autopause=0&controls=0&dnt=1&title=0&byline=0&portrait=0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+      <div class="label">
+        <div class="title">Memorial Gesoni Pawlick</div>
+        <div class="cat">Institucional</div>
+      </div>
+    </div>
+
+    <!-- ROW 4 -->
+    <div class="cell" data-video-id="588441363" data-platform="vimeo"
+         style="grid-row:4;grid-column:1;">
+      <iframe src="https://player.vimeo.com/video/588441363?background=1&autoplay=1&muted=1&loop=1&autopause=0&controls=0&dnt=1&title=0&byline=0&portrait=0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+      <div class="label">
+        <div class="title">Dr. Gazeto PetShop</div>
+        <div class="cat">Institucional</div>
+      </div>
+    </div>
+
+    <div class="cell" data-video-id="kGrXCiRMeWs" data-platform="youtube"
+         style="grid-row:4;grid-column:2;">
+      <iframe src="https://www.youtube.com/embed/kGrXCiRMeWs?si=jMbKn_-0xHOduYHP&controls=0&autoplay=1&mute=1&loop=1&playlist=kGrXCiRMeWs&modestbranding=1&playsinline=1&rel=0&showinfo=0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+      <div class="label">
+        <div class="title">Green Barn Hotel</div>
+        <div class="cat">Institucional</div>
+      </div>
+    </div>
+
+    <div class="cell" data-video-id="713768863" data-platform="vimeo"
+         style="grid-row:4;grid-column:3;">
+      <iframe src="https://player.vimeo.com/video/713768863?background=1&autoplay=1&muted=1&loop=1&autopause=0&controls=0&dnt=1"
+        allow="autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="label">
+        <div class="title">IMA — Completo</div>
+        <div class="cat">Institucional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVIÇOS ===== -->
+<section class="servicos" id="servicos">
+  <span class="tag fade-up">O que fazemos</span>
+  <h2 class="fade-up">Serviços feitos pra converter.</h2>
+
+  <div class="servicos-grid">
+    <div class="servico-card fade-up">
+      <div class="servico-num">01</div>
+      <h3>Vídeo Institucional</h3>
+      <p>A apresentação definitiva da sua empresa. Profissional, memorável e feita pra durar. Usada em site, apresentações comerciais e campanhas de marca.</p>
+      <div class="servico-price">A partir de R$ 5.000</div>
+    </div>
+    <div class="servico-card fade-up">
+      <div class="servico-num">02</div>
+      <h3>Conteúdo para Redes</h3>
+      <p>Produção mensal de vídeos curtos e consistentes para Instagram, YouTube e TikTok. Presença constante com qualidade de produtora, não de amador.</p>
+      <div class="servico-price">A partir de R$ 2.000/mês</div>
+    </div>
+    <div class="servico-card fade-up">
+      <div class="servico-num">03</div>
+      <h3>Campanha Publicitária</h3>
+      <p>Do conceito criativo à entrega final. Anúncios em vídeo para tráfego pago, lançamentos e ações de marca que precisam de impacto real.</p>
+      <div class="servico-price">Sob consulta</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIFERENCIAIS ===== -->
+<section class="diferenciais" id="sobre">
+  <span class="tag fade-up">Por que a KOA</span>
+  <h2 class="fade-up">O problema com a maioria das produtoras não é talento. É gestão.</h2>
+  <p class="dif-intro fade-up">Prazo que escorrega. Briefing que some. Entrega que não era bem isso. Você já passou por isso, ou conhece alguém que passou. A gente construiu um processo que elimina esse tipo de problema antes que ele aconteça. Não por acidente. Por escolha.</p>
+
+  <div class="dif-grid">
+    <div class="dif-item fade-up">
+      <h3>Prazo é contrato</h3>
+      <p>Data de entrega combinada é data de entrega cumprida. Sem postergação, sem desculpa de última hora.</p>
+    </div>
+    <div class="dif-item fade-up">
+      <h3>Comunicação sem ruído</h3>
+      <p>Do briefing à aprovação final, você sabe exatamente em que fase está o projeto. Sem sumir, sem surpresa.</p>
+    </div>
+    <div class="dif-item fade-up">
+      <h3>Padrão técnico consistente</h3>
+      <p>Cada projeto entregue com o mesmo nível de qualidade, independente do tamanho. Seu negócio em primeiro lugar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEPOIMENTOS ===== -->
+<section class="depoimentos" id="depoimentos">
+  <span class="tag fade-up">Quem já trabalhou com a gente</span>
+  <h2 class="fade-up">O que nossos clientes dizem.</h2>
+
+  <!-- Text testimonials -->
+  <div class="depoimentos-grid">
+    <div class="depo-card fade-up">
+      <div class="depo-quote-mark">"</div>
+      <p class="depo-text">Cara, eu assisti de novo aqui. Ficou foda pra caralho. Até eu me senti seduzido pela narração. E junto com as imagens e efeitos, ficou foda demais. São poucas VSLs na Internet com essa pegada. Tá hipnótico. Tem momentos que dá um arrepio na espinha.</p>
+      <div class="depo-author-info">
+        <div class="depo-author">Kal-EL Dias</div>
+        <div class="depo-role">Cliente — Produção de VSL</div>
+      </div>
+    </div>
+    <div class="depo-card fade-up">
+      <div class="depo-quote-mark">"</div>
+      <p class="depo-text">O trabalho que o Gustavo e todos os que trabalhando com ele foi espetacular, e fez toda a diferença para que o meu produto alcançasse a identidade que nós estávamos buscando. O entendimento sobre a "alma" que estávamos buscando para nosso projeto, foi captada da melhor forma possível. O vídeo de apresentação e o caderno de vendas, foi na véia. Só tenho a agradecer por todo grande trabalho executado e dedicação para que tudo saísse perfeito!</p>
+      <div class="depo-author-info">
+        <div class="depo-author">Gabriel No</div>
+        <div class="depo-role">Cliente — Vídeo Institucional</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio testimonials -->
+  <div class="depo-media-section fade-up">
+    <div class="depo-media-label">Depoimentos em áudio</div>
+    <div class="depo-media-grid">
+      <div class="depo-media-card">
+        <div class="media-label">Green Barn Hotel</div>
+        <audio controls preload="metadata">
+          <source src="depoimentos/greenbarn.ogg" type="audio/ogg">
+        </audio>
+      </div>
+      <div class="depo-media-card">
+        <div class="media-label">Depoimento — Parte 1</div>
+        <audio controls preload="metadata">
+          <source src="depoimentos/sitio1.ogg" type="audio/ogg">
+        </audio>
+      </div>
+      <div class="depo-media-card">
+        <div class="media-label">Depoimento — Parte 2</div>
+        <audio controls preload="metadata">
+          <source src="depoimentos/sitio2.ogg" type="audio/ogg">
+        </audio>
+      </div>
+      <div class="depo-media-card">
+        <div class="media-label">Depoimento — Parte 3</div>
+        <audio controls preload="metadata">
+          <source src="depoimentos/sitio3.ogg" type="audio/ogg">
+        </audio>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video testimonials -->
+  <div class="depo-media-section fade-up" style="margin-top: 32px;">
+    <div class="depo-media-label">Depoimentos em vídeo</div>
+    <div class="depo-media-grid">
+      <div class="depo-media-card">
+        <video controls preload="metadata" playsinline>
+          <source src="depoimentos/video1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="depo-media-card">
+        <video controls preload="metadata" playsinline>
+          <source src="depoimentos/video2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="cta-final">
+  <span class="tag fade-up">Vamos começar</span>
+  <h2 class="fade-up">Pronto pra fazer vídeo<br>que funciona?</h2>
+  <p class="cta-sub fade-up">Conta pra gente o que você precisa. A gente analisa e já te apresenta uma proposta.</p>
+  <div class="cta-actions fade-up">
+    <a class="btn primary" href="https://wa.me/5548996330043?text=Oi%2C%20quero%20falar%20sobre%20um%20projeto%20audiovisual." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.94 9.94 0 0 0-8.56 15l-1.44 5.28 5.42-1.42A9.94 9.94 0 1 0 12.04 2Zm5.82 14.25c-.25.7-1.44 1.33-2.01 1.41-.52.07-1.16.1-1.87-.12-.43-.13-1-.32-1.71-.63-3.01-1.3-4.97-4.34-5.12-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.48.78-2.2 1.05-2.5.27-.3.59-.38.79-.38h.57c.18 0 .43-.07.67.51.25.6.85 2.08.93 2.23.07.15.13.33.02.53-.1.2-.15.32-.3.5-.15.17-.32.39-.46.52-.15.15-.31.31-.13.61.17.3.77 1.27 1.65 2.06 1.13 1 2.08 1.31 2.38 1.46.3.15.47.12.65-.07.18-.2.75-.87.95-1.17.2-.3.4-.25.66-.15.27.1 1.72.81 2.01.96.3.15.49.22.56.35.07.13.07.72-.18 1.42Z"/></svg>
+      Falar pelo WhatsApp
+    </a>
+    <a class="btn" href="mailto:guzzsecco@gmail.com?subject=Projeto%20audiovisual%20%E2%80%94%20KOA">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 7 9-7"/></svg>
+      Enviar email
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="foot-brand">
+    <img src="koa-logo.webp" alt="KOA" />
+    <span style="font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)">Audiovisual</span>
+  </div>
+  <div class="foot-copy">© 2026 KOA Audiovisual. Todos os direitos reservados.</div>
+</footer>
+
+<!-- ===== VIDEO MODAL ===== -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Player de vídeo">
+  <div class="stage">
+    <button class="close" id="modalClose" aria-label="Fechar">
+      <span>Fechar</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <iframe id="modalFrame" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+  // -------- Mobile nav --------
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const isOpen = navLinks.classList.contains('open');
+    hamburger.innerHTML = isOpen
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+    });
+  });
+
+  // -------- Portfolio grid hover resize --------
+  const HOVER_SIZE = 5;
+  const NON_HOVER = (16 - HOVER_SIZE) / 3;
+  const grid = document.getElementById('grid');
+  const mq = window.matchMedia('(min-width: 769px)');
+
+  function applySizes(row, col) {
+    const rows = [1,2,3,4].map(r => r === row ? HOVER_SIZE+'fr' : NON_HOVER+'fr').join(' ');
+    const cols = [1,2,3].map(c => c === col ? HOVER_SIZE+'fr' : NON_HOVER+'fr').join(' ');
+    grid.style.gridTemplateRows = rows;
+    grid.style.gridTemplateColumns = cols;
+  }
+  function resetSizes() {
+    grid.style.gridTemplateRows = '1fr 1fr 1fr 1fr';
+    grid.style.gridTemplateColumns = '1fr 1fr 1fr';
+  }
+
+  [...grid.children].forEach(el => {
+    const style = el.getAttribute('style') || '';
+    const row = parseInt((style.match(/grid-row:\s*(\d)/) || [])[1], 10);
+    const col = parseInt((style.match(/grid-column:\s*(\d)/) || [])[1], 10);
+    if (!row || !col) return;
+    el.addEventListener('mouseenter', () => { if (mq.matches) applySizes(row, col); });
+    el.addEventListener('mouseleave', () => { if (mq.matches) resetSizes(); });
+  });
+
+  // -------- Video modal --------
+  const modal = document.getElementById('modal');
+  const modalFrame = document.getElementById('modalFrame');
+  const modalClose = document.getElementById('modalClose');
+
+  function openModal(platform, id) {
+    let src = '';
+    if (platform === 'vimeo') {
+      src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&dnt=1`;
+    } else if (platform === 'youtube') {
+      src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+    }
+    modalFrame.src = src;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    modalFrame.src = '';
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.cell').forEach(cell => {
+    cell.addEventListener('click', () => {
+      const id = cell.dataset.videoId;
+      const platform = cell.dataset.platform;
+      if (id && platform) openModal(platform, id);
+    });
+  });
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // -------- Scroll fade-in --------
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

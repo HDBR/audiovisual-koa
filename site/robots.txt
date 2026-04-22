@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://audiovisual.koaworld.org/sitemap.xml
